@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ERC721 NFT Interaction</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/web3.min.js"></script>
+    <script src="js/generic-wallet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ethers@5.6.8/dist/ethers.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>ERC721 NFT Interaction</h1>
+
+        <div class="form-section">
+            <h2>Create NFT</h2>
+            <input type="text" id="nftURL" placeholder="Metadata URL">
+            <button id="createNFT">Create NFT</button>
+        </div>
+
+
+        <div class="form-section">
+            <h2>View NFT Metadata</h2>
+            <input type="number" id="tokenId" placeholder="Token ID">
+            <button id="viewMetadata">View Metadata</button>
+            <div id="metadataResult" class="result-section"></div>
+        </div>
+
+        <div class="form-section">
+            <h2>Transfer NFT</h2>
+            <input type="number" id="transferTokenId" placeholder="Token ID">
+            <input type="text" id="recipientAddress" placeholder="Recipient Address">
+            <button id="transferNFT">Transfer NFT</button>
+        </div>
+    </div>
+
+    <!-- Popup for wallet selection -->
+    <div id="wallet-popup" class="popup">
+        <div class="popup-content">
+            <h2>Select Wallet</h2>
+            <select id="wallet-select" size="5"></select>
+            <button id="select-wallet">Select</button>
+        </div>
+    </div>
+
+    <script src="js/ERC721.js"></script>
+</body>
+</html>

@@ -1,0 +1,4 @@
+projectX.address
+await projectX.deployed();
+const projectX = await ProjectX.deploy();
+const ProjectX = await ethers.getContractFactory("ProjectX");

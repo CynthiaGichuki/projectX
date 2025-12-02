@@ -1,0 +1,43 @@
+services:
+  key-generator:
+    build: ./key-generator
+    networks:
+      - hardhat-network
+    volumes:
+      - keys:/keys
+    command: ["sh", "-c", "node generate-keys.js && cp -r ./keys/* /keys/"]
+
+  credential-issuer:
+    build: ./credential-issuer
+    ports:
+      - "9001:9001"
+    networks:
+      - hardhat-network
+    volumes:
+      - keys:/usr/src/app/keys
+    depends_on:
+      - key-generator
+
+  credential-verifier:
+    build: ./credential-verifier
+    ports:
+      - "9002:9002"
+    networks:
+      - hardhat-network
+
+  did-registry:
+    build: ./did-registry
+    ports:
+      - "9003:9003"
+    networks:
+      - hardhat-network
+    volumes:
+      - shared-data:/usr/src/app/shared
+
+networks:
+  hardhat-network:
+    external: true
+
+volumes:
+  keys:
+  shared-data:

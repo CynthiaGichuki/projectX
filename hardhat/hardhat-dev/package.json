@@ -1,0 +1,25 @@
+{
+    "name": "hardhat-dev",
+    "version": "1.0.0",
+    "description": "Hardhat development environment",
+    "main": "index.js",
+    "scripts": {
+      "compile": "npx hardhat compile",
+      "deploy_counter": "npx hardhat run scripts/deploy_counter.js --network localhost",
+      "deploy_my_token": "npx hardhat run scripts/deploy_my_token.js --network localhost",
+      "deploy_my_nft": "npx hardhat run scripts/deploy_my_nft.js --network localhost",
+      "deploy_did_registry": "npx hardhat run scripts/deploy_did_registry.js --network localhost",
+      "deploy_all": "npx hardhat run scripts/deploy_all.js --network localhost",
+      "test": "npx hardhat test"
+    },
+    "dependencies": {
+      "hardhat": "^2.12.4",
+      "@nomiclabs/hardhat-ethers": "^2.0.4",
+      "@nomicfoundation/hardhat-chai-matchers": "^1.0.0",
+      "@openzeppelin/contracts": "^5.0.0",
+      "ethers": "^5.7.0",
+      "chai": "^4.3.6",
+      "mocha": "^9.2.2"
+    }
+  }
+  

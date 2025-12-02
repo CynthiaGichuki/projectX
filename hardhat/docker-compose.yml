@@ -1,0 +1,30 @@
+services:
+  hardhat-node:
+    build: ./hardhat-node
+    ports:
+      - "8545:8545"
+    networks:
+      - hardhat-network
+    volumes:
+      - hardhat_data:/usr/src/app/hardhat_data
+
+
+  hardhat-dev:
+    build: ./hardhat-dev
+    depends_on:
+      - hardhat-node
+    volumes:
+      - ./hardhat-dev:/usr/src/app
+      - shared-data:/usr/src/app/shared
+    networks:
+      - hardhat-network
+    command: sh -c "npm install && npm run compile && sleep 5 && npm run deploy_all && npm run test"
+
+
+networks:
+  hardhat-network:
+    external: true
+
+volumes:
+  shared-data:
+  hardhat_data:
