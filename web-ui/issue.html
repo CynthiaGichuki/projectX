@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Issue Credential</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .json-result {
+            background-color: #f8f8f8;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-top: 20px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            font-family: monospace;
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Issue Credential</h1>
+        
+        <div class="form-section">
+            <label for="registry">Registry:</label>
+            <select id="registry">
+                <option value="db">Database</option>
+                <option value="blockchain">Blockchain</option>
+            </select>
+
+            <label for="issuer">Issuer:</label>
+            <select id="issuer">
+                <option value="issuer1">Issuer 1</option>
+                <option value="issuer2">Issuer 2</option>
+            </select>
+            
+            <label for="did">DID:</label>
+            <input type="text" id="did" placeholder="Enter DID">
+            
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter Name">
+            
+            <label for="course">Course:</label>
+            <input type="text" id="course" placeholder="Enter Course">
+            
+            <button id="issue-credential">Issue Credential</button>
+        </div>
+
+        <div id="issued-credential" class="json-result"></div>
+    </div>
+
+    <script src="js/issue.js"></script>
+</body>
+</html>

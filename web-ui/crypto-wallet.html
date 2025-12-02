@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Wallet</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/web3.min.js"></script>
+    <script src="js/generic-wallet.js"></script>
+
+</head>
+    
+</head>
+<body>
+    <div class="container">
+        <h1>Crypto Wallet</h1>
+        
+        <div class="form-section">
+            <h2>Wallet Addresses</h2>
+            <select id="address-select" size="5"></select>
+            <button id="delete-address">Delete Address</button>
+        </div>
+
+        <div class="form-section">
+            <h2>Address Details</h2>
+            <label for="view-address">Address:</label>
+            <input type="text" id="view-address" readonly>
+            
+            <label for="view-privateKey">Private Key:</label>
+            <input type="text" id="view-privateKey" readonly>
+
+            <label for="view-balance">Balance:</label>
+            <input type="text" id="view-balance" readonly>
+        </div>
+
+        <div class="form-section">
+            <h2>Transfer Ether</h2>
+            <label for="transfer-from">From:</label>
+            <select id="transfer-from"></select>
+
+            <label for="transfer-to">To:</label>
+            <input type="text" id="transfer-to">
+
+            <label for="transfer-amount">Amount (ETH):</label>
+            <input type="text" id="transfer-amount">
+
+            <button id="transfer-ether">Transfer Ether</button>
+        </div>
+    </div>
+
+    <script src="js/crypto-wallet.js"></script>
+    <script>
+        document.getElementById('delete-address').addEventListener('click', deleteAddress);
+        document.getElementById('transfer-ether').addEventListener('click', transferEther);
+    </script>
+</body>
+</html>

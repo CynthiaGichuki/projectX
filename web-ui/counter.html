@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter Contract</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/web3.min.js"></script>
+    <script src="js/generic-wallet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Counter Contract</h1>
+        <p>Current Count: <span id="count">0</span></p>
+        <button id="increment">Increment</button>
+        <button id="decrement">Decrement</button>
+        <br><br>
+        <button id="change_address">Change Address</button>
+    </div>
+
+    <!-- Popup for wallet selection -->
+    <div id="wallet-popup" class="popup">
+        <div class="popup-content">
+            <h2>Select Wallet</h2>
+            <select id="wallet-select" size="5"></select>
+            <button id="select-wallet">Select</button>
+        </div>
+    </div>
+
+    <script src="js/counter.js"></script>
+</body>
+</html>
