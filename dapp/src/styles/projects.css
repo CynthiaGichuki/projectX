@@ -1,0 +1,35 @@
+.projects-page {
+  background: var(--bg-dark);
+  min-height: 100vh;
+  width: 100%;
+  color: var(--white);
+  padding-bottom: 60px;
+}
+
+.projects-header {
+  max-width: 1000px;
+  margin: 40px auto 20px;
+  padding: 0 20px;
+}
+
+.projects-header h1 {
+  font-size: 2.5rem;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.subtitle {
+  margin-top: 8px;
+  color: var(--text-soft);
+  font-size: 1rem;
+}
+
+.projects-grid {
+  max-width: 1100px;
+  margin: 30px auto;
+  padding: 0 20px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 24px;
+}
