@@ -1,39 +1,43 @@
+/* --- LAYOUT --- */
+.project-card-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
 
 .project-card-container {
-    perspective: 1000px; 
+    perspective: 1000px;
+    height: 280px; /* Fixed height for the visual card */
+    width: 100%;
 }
 
 .project-card-inner {
     position: relative;
     width: 100%;
-    height: 240px; 
+    height: 100%;
     transition: transform 0.6s;
     transform-style: preserve-3d;
 }
 
+/* RESTORED: Flip on Hover */
 .project-card-container:hover .project-card-inner {
     transform: rotateY(180deg);
 }
 
+/* --- FACES --- */
 .project-card {
     position: absolute;
     width: 100%;
     height: 100%;
-    background: var(--bg-dark-2); 
+    background: var(--bg-dark-2, #111418);
     border: 1px solid rgba(249, 178, 51, 0.25);
     border-radius: 14px;
     padding: 20px;
     box-shadow: 0 4px 14px rgba(0,0,0,0.4);
-    transition: all 0.3s ease;
-    backface-visibility: hidden; 
+    backface-visibility: hidden;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
-
-
-.project-card-container:hover .project-card {
-    box-shadow: 0 5px 20px rgba(255, 215, 0, 0.2); 
 }
 
 .project-card.back {
@@ -42,60 +46,60 @@
     overflow: hidden;
 }
 
+/* --- EXTERNAL BUTTONS --- */
+.card-actions-external {
+    margin-top: 12px; /* Space between card and buttons */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically or change to 'row' */
+    gap: 8px;
+}
+
+/* --- TYPOGRAPHY --- */
 .project-title {
     font-size: 1.1rem;
     font-weight: 600;
-    color: var(--white); 
+    color: var(--white, #fff);
 }
 
 .project-description {
     font-size: 0.85rem;
-    color: var(--text-soft);
-    flex: 1; 
-    margin-top: 6px;
+    color: var(--text-soft, #cbd5e1);
+    line-height: 1.4;
 }
 
 .project-votes {
     font-size: 0.85rem;
-    color: var(--text-soft);
+    color: var(--text-soft, #cbd5e1);
 }
 
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.image-overlay {
+    position: absolute;
+    bottom: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+    width: 100%;
+    padding: 20px;
+    color: white;
+}
+
+/* --- STATUS COLORS --- */
 .status {
     padding: 4px 10px;
     border-radius: 6px;
     font-size: 0.75rem;
     font-weight: 600;
     text-transform: uppercase;
-    align-self: start; 
 }
 
+.status.draft { background: rgba(100, 116, 139, 0.2); color: #94a3b8; }
+.status.expert-review { background: rgba(59,130,246,0.2); color: #3b82f6; }
+.status.voting { background: rgba(249,178,51,0.2); color: #f9b233; }
 .status.approved { background: rgba(16,185,129,0.2); color: #10b981; }
-.status.pending { background: rgba(249,178,51,0.2); color: var(--gold); }
-.status.in-review { background: rgba(59,130,246,0.2); color: #3b82f6; }
+.status.implementation { background: rgba(249, 115, 22, 0.2); color: #f97316; }
 .status.rejected { background: rgba(239,68,68,0.2); color: #ef4444; }
-
-.project-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.image-overlay {
-    position: absolute;
-    bottom: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
-    width: 100%;
-    padding: 20px;
-    color: var(--white);
-}
-
-.image-overlay h3 {
-    color: var(--gold);
-    font-size: 1.1rem;
-    margin-bottom: 4px;
-}
-
-.image-overlay p {
-    font-size: 0.85rem;
-    opacity: 0.9;
-}
+.status.completed { background: rgba(139, 92, 246, 0.2); color: #a78bfa; border: 1px solid #8b5cf6; }
